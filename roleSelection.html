@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>role</title>
+    <link rel="stylesheet" href="roleSelection.css" />
+  </head>
+  <body>
+    <div class="upper-section">
+      <div class="dribbble">dribbble</div>
+      <div onclick="backpage()" class="back-btn"><button><</button></div>
+    </div>
+    <div class="lower-section">
+      <div class="container">
+        <div class="headings">
+          <h1>What brings you to Dribbble?</h1>
+
+          <p>
+            Select the options that best describe you. Don't worry, you can
+            explore other options later.
+          </p>
+        </div>
+        <div class="options">
+          <div class="card">
+            <div class="img-container" id="container1">
+              <img class="card-image" src="images/work.webp" alt="" />
+            </div>
+            <div class="card-label">
+              <label> I'm looking for design inspiration </label>
+              <!-- <div id="para">
+                With over 7 million shots from a vast community of designers,
+                Dribbble is the leading source for design inspiration.
+              </div> -->
+              <div class="check-box">
+                <div class="container">
+                  <div class="round">
+                    <input type="checkbox" id="checkbox1" />
+                    <label for="checkbox1"></label>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="card">
+            <div class="img-container" id="container2">
+              <img class="card-image" src="images/work.webp" alt="" />
+            </div>
+            <div class="card-label">
+              <label> I'm looking for design inspiration </label>
+              <!-- <div id="para">
+                With over 7 million shots from a vast community of designers,
+                Dribbble is the leading source for design inspiration.
+              </div> -->
+              <div class="check-box">
+                <div class="container">
+                  <div class="round">
+                    <input type="checkbox" id="checkbox2" />
+                    <label for="checkbox2"></label>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="card">
+            <div class="img-container" id="container3">
+              <img class="card-image" src="images/work.webp" alt="" />
+            </div>
+            <div class="card-label">
+              <label> I'm looking for design inspiration </label>
+              <!-- <div id="para">
+                With over 7 million shots from a vast community of designers,
+                Dribbble is the leading source for design inspiration.
+              </div> -->
+              <div class="check-box">
+                <div class="container">
+                  <div class="round">
+                    <input type="checkbox" id="checkbox3" />
+                    <label for="checkbox3"></label>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="finish-btn">
+          <button onclick="handleSubmit()" id="submitButton">Finish</button>
+        </div>
+      </div>
+    </div>
+  </body>
+  <script>
+    const handleSubmit = () => {
+      location.href = "mail.html";
+    };
+
+    const backpage = () => {
+      location.href = "createProfile.html";
+    };
+
+    const checkboxes = document.querySelectorAll('input[type="checkbox"]');
+
+    checkboxes.forEach((checkbox) => {
+      checkbox.addEventListener("change", function () {
+        const containerId = this.id.replace("checkbox", "container");
+        const imgContainer = document.getElementById(containerId);
+        const para = document.getElementById("para");
+
+        if (this.checked) {
+          imgContainer.classList.add("img-slideup");
+          para.style.display = "block";
+        } else {
+          imgContainer.classList.remove("img-slideup");
+          para.style.display = "none";
+        }
+      });
+    });
+
+    checkboxes.forEach((checkbox) => {
+      checkbox.addEventListener("change", function () {
+        const label = this.closest(".card-label").querySelector("label");
+
+        if (this.checked) {
+          label.classList.add("animation-name");
+        } else {
+          label.classList.remove("animation-name");
+        }
+
+        const containerId = this.id.replace("checkbox", "container");
+        const imgContainer = document.getElementById(containerId);
+      });
+    });
+  </script>
+</html>

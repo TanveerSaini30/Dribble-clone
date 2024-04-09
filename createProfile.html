@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Create profile</title>
+  <link rel="stylesheet" href="createProfile.css" />
+</head>
+
+<body>
+  <div class="dribbble">dribbble</div>
+  <div class="container">
+    <div class="profile">
+      <div class="text">
+        <div class="heading">
+          <h1>Welcome! Let's create your profile</h1>
+        </div>
+        <div class="detail">
+          <p>Let others get to know you better! You can do these later</p>
+        </div>
+      </div>
+      <div class="avatar-section">
+        <div class="avatar-heading">
+          <h2>Add an avatar</h2>
+        </div>
+        <div class="avatar-container">
+          <div class=" image-section">
+            <img id="default-profile" class="default-profile " src="images/camera-plus.svg" alt="Avatar" />
+          </div>
+          <div class="button">
+            <div class="file-upload">
+              <input type="file" id="file-input" />
+              <label for="file-input">Choose Images</label>
+            </div>
+            <p class="para">> Or choose one of our defaults</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="location-section">
+        <h2>Add your location</h2>
+        <input type="text" placeholder="Enter a location" />
+      </div>
+
+      <div class="last">
+        <button onclick="handleSubmit()" class="next-btn">Next</button>
+        <p onclick="previousPage()" class="return">or Press RETURN</p>
+      </div>
+    </div>
+  </div>
+</body>
+<script>
+
+  // Function to enable/disable next button
+function enableNextButton() {
+    const fileInput = document.getElementById("file-input");
+    const locationInput = document.querySelector(".location-section input");
+    const nextButton = document.querySelector(".next-btn");
+
+    // Check if both file input and location input are filled
+    if (fileInput.files.length > 0 && locationInput.value.trim() !== "") {
+        nextButton.disabled = false; // Enable next button
+        nextButton.style.opacity=(1);
+    } else {
+        nextButton.disabled = true; // Disable next button
+        nextButton.style.opacity=(0.5);
+    }
+}
+
+// Function to update profile image
+function updateProfileImage() {
+    const profilePic = document.getElementById("default-profile");
+    const fileInput = document.getElementById("file-input");
+    const imageSection = document.querySelector(".image-section");
+    const file = fileInput.files[0];
+
+    if (file) {
+        profilePic.src = URL.createObjectURL(file);
+        profilePic.classList.add("profile-image");
+        imageSection.style.border = "none";
+    }
+}
+
+// Function to handle form submission
+const handleSubmit = () => {
+    window.location.href = "roleSelection.html";
+};
+
+// Function for previous page navigation
+const previousPage = () => {
+    window.location.href = "signUp.html";
+};
+
+// Event listener for file input change
+const fileInput = document.getElementById("file-input");
+fileInput.addEventListener("change", function () {
+    updateProfileImage(); // Update profile image
+    enableNextButton(); // Enable/disable next button
+});
+
+// Event listener for location input change
+const locationInput = document.querySelector(".location-section input");
+locationInput.addEventListener("input", enableNextButton);
+
+// Initially disable the next button
+enableNextButton();
+
+
+
+
+
+</script>
+
+</html>
+
+</html>

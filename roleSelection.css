@@ -1,0 +1,265 @@
+@import url("https://fonts.googleapis.com/css2?family=Pacifico&display=swap");
+
+@font-face {
+  font-family: CustomFont;
+  src: url("path_to_font_file.ttf");
+}
+
+body {
+  font-family: CustomFont, Arial, Helvetica, sans-serif;
+}
+
+h1,
+h2,
+h3,
+p {
+  font-family: inherit;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+/* Upper Section */
+
+.upper-section {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 12px;
+}
+
+.dribbble {
+  margin: 33px 0 33px 40px;
+  font-size: 23px;
+  font-family: "Pacifico", cursive;
+  font-weight: lighter;
+  color: rgba(234, 75, 139, 255);
+  letter-spacing: 1.2px;
+}
+
+.back-btn button {
+  background-color: #f2f2f2;
+  width: 40px;
+  height: 39px;
+  margin: 0px 0 4px 20px;
+  font-size: small;
+  font-weight: bold;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+/* Lower Section */
+
+.lower-section {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.container {
+  height: 80vh;
+  width: 120vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.headings {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.headings h1 {
+  font-size: xx-large;
+  margin: 5px 0 15px 0;
+}
+
+.headings p {
+  font-size: 16px;
+  color: #6c6b73;
+  margin: 6px 0 55px 0;
+}
+
+/* cards */
+
+.options {
+  margin: 30px auto 30px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  width: 100%;
+  justify-items: center;
+  height: 40vh;
+  align-content: space-around;
+}
+
+.card {
+  border: 1px solid #c5c5c570;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 35vh;
+  height: 38vh;
+}
+
+.img-container {
+  width: 150px;
+  height: 130px;
+  border-radius: 50%;
+  margin: 15px auto 15px;
+  position: relative;
+}
+
+.img-slideup {
+  transform: translateY(-70px);
+}
+
+.card-image {
+  width: 100%;
+}
+
+.card-label {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-weight: bold;
+}
+
+.card-label label {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  height: 5vmin;
+  margin: 10px 0 2px 0px;
+  width: 28vmin;
+}
+
+.check-box {
+  margin: 15px 0 0 0;
+  width: 39px;
+  height: 28px;
+  display: flex;
+  justify-content: center;
+}
+
+.check-box input {
+  height: 22px;
+  width: 23px;
+  cursor: pointer;
+}
+
+.round {
+  position: relative;
+}
+
+.round label {
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 50%;
+  cursor: pointer;
+  height: 28px;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 28px;
+}
+
+.round label:after {
+  border: 2px solid #fff;
+  border-top: none;
+  border-right: none;
+  content: "";
+  height: 6px;
+  left: 7px;
+  opacity: 0;
+  position: absolute;
+  top: 8px;
+  transform: rotate(-45deg);
+  width: 12px;
+}
+
+.round input[type="checkbox"] {
+  visibility: hidden;
+}
+
+.round input[type="checkbox"]:checked + label {
+  background-color: rgba(234, 75, 139, 255);
+  border-color: rgba(234, 75, 139, 255);
+}
+
+.round input[type="checkbox"]:checked + label:after {
+  opacity: 1;
+}
+
+.finish-btn {
+  height: 15vmin;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.finish-btn button {
+  width: 30vmin;
+  height: 5vmin;
+  font-size: 15px;
+  font-weight: bold;
+  padding: 6px;
+  color: white;
+  background-color: rgba(234, 75, 139, 255);
+  border: none;
+  border-radius: 10px;
+}
+
+.animation-name {
+  transform: translateY(-65px);
+}
+.para {
+  display: none;
+}
+
+/* For screens between 576px and 767.98px (larger phones and small tablets) */
+@media (min-width: 576px) and (max-width: 767.98px) {
+  .container {
+    width: 100%;
+  }
+
+  .options {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: auto;
+    gap: 3vmin;
+  }
+  .headings p {
+    font-size: 14px;
+  }
+
+  .card {
+    width: 45%;
+    height: auto;
+  }
+}
+
+/* For screens between 768px and 991.98px (tablets and small desktops) */
+@media (min-width: 768px) and (max-width: 991.98px) {
+  .container {
+    width: 100%;
+  }
+
+  .options {
+    /* grid-template-columns: 1fr 1fr; */
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    height: auto;
+    justify-content: space-around;
+  }
+
+  .card {
+    width: 30%;
+    height: 40vmin;
+  }
+}

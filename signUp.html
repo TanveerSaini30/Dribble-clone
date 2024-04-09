@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sign Up to Dribbble</title>
+  <link rel="stylesheet" href="signUp.css" />
+</head>
+
+<body>
+  <div class="container">
+    <div class="left-section">
+      <div class="text">
+        <div class="dribbble">
+          <p>dribbble</p>
+        </div>
+        <p>Discover the world's top Designers &amp; Creatives.</p>
+      </div>
+    </div>
+    <div class="right-section">
+      <div class="already-member">
+        <p>Already a member? <a href="#">Sign In</a></p>
+      </div>
+      <div class="registration">
+        <div class="form">
+          <p class="signup">Sign up to Dribbble</p>
+          <p class="error-message"> &#x2022 Username has already been taken</p>
+          <form action="./createProfile.html">
+            <div class="name">
+              <div class="name-group1">
+                <label for="name">Name</label>
+                <input type="text" id="name" value="John" />
+              </div>
+            </div>
+            <div class="name">
+              <div class="name-group2">
+                <label for="username"><span class="redSpan">&#x26A0</span> Username</label>
+                <input type="text" id="username" value="John" class="error" />
+              </div>
+            </div>
+            <div class="email">
+              <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" value="account@refero.design" />
+              </div>
+            </div>
+            <div class="password">
+              <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" placeholder="6+ characters" />
+              </div>
+            </div>
+            <div class="checkbox">
+              <input type="checkbox" id="box" />
+              <div class="terms">
+                <p>Creating an account means you're okay with our <span class="blueSpan">of
+                    Service</span>,<span class="blueSpan"> Privacy Policy</span>, and our <span class="blueSpan">default
+                    Notification
+                    Settings</span>.</p>
+              </div>
+            </div>
+            <button id="createAccount" class="create-account  ">Create Account</button>
+            <p class="recaptcha-info">
+              This site is protected by reCAPTCHA and the Google <span class="blueSpan">Privacy Policy</span> and
+              <span class="blueSpan">Terms of Service</span> apply.
+            </p>
+          </form>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</body>
+
+<script>
+
+
+  document.addEventListener("DOMContentLoaded", function () {
+    const nameInput = document.getElementById("name");
+    const usernameInput = document.getElementById("username");
+    const emailInput = document.getElementById("email");
+    const passwordInput = document.getElementById("password");
+    const checkbox = document.getElementById("box");
+    const submitButton = document.getElementById("createAccount");
+
+    // Function to check if all fields are filled and checkbox is ticked
+    const isFormValid = () => {
+      return (
+        nameInput.value !== "" &&
+        usernameInput.value !== "" &&
+        emailInput.value !== "" &&
+        passwordInput.value !== "" &&
+        checkbox.checked
+      );
+    };
+
+    // Disable submit button initially
+    submitButton.disabled = !isFormValid();
+    submitButton.style.opacity = (0.5);
+
+    // Update submit button state on any input change
+    [nameInput, usernameInput, emailInput, passwordInput, checkbox].forEach(
+      (input) => {
+        input.addEventListener("change", function () {
+          submitButton.disabled = !isFormValid();
+          submitButton.style.opacity = (1);
+        });
+      }
+    );
+  });
+
+
+
+</script>
+
+</html>

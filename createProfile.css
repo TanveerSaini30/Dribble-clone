@@ -1,0 +1,249 @@
+@import url("https://fonts.googleapis.com/css2?family=Pacifico&display=swap");
+
+@font-face {
+  font-family: CustomFont;
+  src: url("path_to_font_file.ttf");
+}
+
+body {
+  font-family: CustomFont, Arial, Helvetica, sans-serif;
+}
+
+h1,
+h2,
+h3,
+p {
+  font-family: inherit;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+/* Dribbble Logo */
+
+.dribbble {
+  margin: 33px 0 33px 40px;
+  font-size: 23px;
+  font-family: "Pacifico", cursive;
+  font-weight: lighter;
+  color: rgba(234, 75, 139, 255);
+  letter-spacing: 1.2px;
+}
+
+.heading {
+  margin: 20px 0 20px 0;
+  font-size: 18px;
+}
+.detail {
+  margin: 10px 0 20px 0;
+  font-size: 17px;
+  color: rgba(100, 99, 99, 0.95);
+}
+
+.container {
+  height: 80vh;
+  display: flex;
+  justify-content: center;
+  align-items: normal;
+}
+
+.profile {
+  width: 80vh;
+}
+
+.avatar-heading {
+  margin: 0 0 15px 0;
+}
+
+/* Avatar Section */
+
+.avatar-section {
+  margin-bottom: 30px;
+}
+
+.avatar-container {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 3px;
+  margin-top: 35px;
+}
+
+.image-section {
+  width: 150px;
+  height: 150px;
+  border: 3px dashed rgb(204, 204, 204);
+  border-radius: 50%;
+  margin: 0 auto 10px;
+  position: relative;
+}
+
+.image-section {
+  width: 150px;
+  height: 150px;
+
+  border-radius: 50%;
+  margin: 0 auto 10px;
+  position: relative;
+}
+.default-profile {
+  margin-left: 55px;
+  width: 41px;
+  height: 141px;
+}
+
+.profile-image {
+  margin-left: 23px;
+  width: 119px;
+  height: 124px;
+}
+
+/* .button button {
+  background-color: transparent;
+  padding: 10px;
+  margin: 20px 0px 18px 10px;
+  font-size: 15px;
+  font-weight: bold;
+  border: 1px solid rgb(204, 204, 204);
+  border-radius: 8px;
+} */
+
+.file-upload {
+  overflow: hidden;
+  position: relative;
+}
+
+.file-upload input[type="file"] {
+  display: none;
+}
+.file-upload label {
+  display: inline-block;
+  cursor: pointer;
+  background-color: transparent;
+  padding: 10px;
+  margin: 20px 0px 18px 10px;
+  font-size: 15px;
+  font-weight: bold;
+  border: 1px solid rgb(204, 204, 204);
+  border-radius: 8px;
+}
+
+.para {
+  margin: 3px 0px 18px 10px;
+  color: rgb(149, 149, 149);
+  font-weight: bold;
+  font-size: 14px;
+}
+
+/* Location Section */
+
+.location-section h2 {
+  margin: 0px 0px 20px 0px;
+}
+
+.location-section input {
+  width: 100%;
+  padding: 10px 0px 10px 0px;
+  border-bottom: 1px solid #ccc;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  font-size: 18px;
+  outline: none;
+}
+
+/* Next Button */
+.last {
+  display: flex;
+  flex-direction: column;
+}
+
+.next-btn {
+  width: 25vmin;
+  background-color: rgba(234, 75, 139, 255);
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  margin-top: 50px;
+}
+
+.return {
+  font-size: 13px;
+  font-weight: bold;
+  color: rgb(149, 149, 149);
+  margin: 10px 0 0 50px;
+  cursor: pointer;
+}
+
+@media only screen and (max-width: 768px) {
+  .dribbble {
+    margin: 25px 0 33px 15px;
+  }
+
+  .container {
+    flex-direction: column;
+    align-items: center;
+  }
+  .heading {
+    font-size: 12px;
+    margin: 50px 0 10px 0;
+  }
+
+  .profile {
+    width: 90%;
+    padding: 20px;
+  }
+
+  .avatar-section {
+    align-items: center;
+  }
+
+  .avatar-container {
+    grid-template-columns: 1fr;
+  }
+
+  .button {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .image-section {
+    width: 120px;
+    height: 120px;
+    margin: 0 auto;
+  }
+
+  .default-profile {
+    margin-left: 46px;
+    width: 31px;
+    height: 121px;
+  }
+  .profile-image {
+    margin-left: 23px;
+    width: 119px;
+    height: 124px;
+  }
+  .return {
+    margin-left: 14px;
+  }
+}
+
+@media screen and (max-width: 425px) {
+  .return {
+    margin-left: 3px;
+  }
+}
+
+@media screen and (max-width: 471px) {
+  .next-btn {
+    margin-left: 35vmin;
+  }
+  .return {
+    margin-left: 35vmin;
+  }
+}
