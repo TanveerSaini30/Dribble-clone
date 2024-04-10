@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>role</title>
+    <title>Role Selelction</title>
     <link rel="stylesheet" href="roleSelection.css" />
   </head>
   <body>
     <div class="upper-section">
       <div class="dribbble">dribbble</div>
-      <div onclick="backpage()" class="back-btn"><button><</button></div>
+      <div onclick="previousPage()" class="back-btn"><button><</button></div>
     </div>
     <div class="lower-section">
       <div class="container">
@@ -22,14 +22,14 @@
         <div class="options">
           <div class="card">
             <div class="img-container" id="container1">
-              <img class="card-image" src="images/work.webp" alt="" />
+              <img class="card-image" src="images/select1.png" alt="" />
             </div>
             <div class="card-label">
               <label> I'm looking for design inspiration </label>
-              <!-- <div id="para">
+              <div class="para">
                 With over 7 million shots from a vast community of designers,
                 Dribbble is the leading source for design inspiration.
-              </div> -->
+              </div>
               <div class="check-box">
                 <div class="container">
                   <div class="round">
@@ -42,14 +42,14 @@
           </div>
           <div class="card">
             <div class="img-container" id="container2">
-              <img class="card-image" src="images/work.webp" alt="" />
+              <img class="card-image" src="images/select2.png" alt="" />
             </div>
             <div class="card-label">
               <label> I'm looking for design inspiration </label>
-              <!-- <div id="para">
+              <div class="para">
                 With over 7 million shots from a vast community of designers,
                 Dribbble is the leading source for design inspiration.
-              </div> -->
+              </div>
               <div class="check-box">
                 <div class="container">
                   <div class="round">
@@ -62,14 +62,14 @@
           </div>
           <div class="card">
             <div class="img-container" id="container3">
-              <img class="card-image" src="images/work.webp" alt="" />
+              <img class="card-image" src="images/select3.png" alt="" />
             </div>
             <div class="card-label">
               <label> I'm looking for design inspiration </label>
-              <!-- <div id="para">
+              <div class="para">
                 With over 7 million shots from a vast community of designers,
                 Dribbble is the leading source for design inspiration.
-              </div> -->
+              </div>
               <div class="check-box">
                 <div class="container">
                   <div class="round">
@@ -83,19 +83,27 @@
         </div>
 
         <div class="finish-btn">
+          <div class="anything">
+            <p>Anything else? You can select multiple</p>
+          </div>
           <button onclick="handleSubmit()" id="submitButton">Finish</button>
+          <div onclick="previousPage()" class="return">or Press RETURN</div>
         </div>
       </div>
     </div>
   </body>
+
   <script>
+    //to change the pages
     const handleSubmit = () => {
       location.href = "mail.html";
     };
 
-    const backpage = () => {
+    const previousPage = () => {
       location.href = "createProfile.html";
     };
+
+    //to change the position of the image and border color andfor finish button
 
     const checkboxes = document.querySelectorAll('input[type="checkbox"]');
 
@@ -103,30 +111,63 @@
       checkbox.addEventListener("change", function () {
         const containerId = this.id.replace("checkbox", "container");
         const imgContainer = document.getElementById(containerId);
-        const para = document.getElementById("para");
+        const card = document.getElementById(containerId).parentElement;
+        const anything = document.querySelector(".anything");
+        const Return = document.querySelector(".return");
+        const checkbox = document.querySelectorAll('input[type="checkbox"]');
+        const FinishButton = document.getElementById("submitButton");
+
+        FinishButton.disabled = true;
 
         if (this.checked) {
+          anything.style.display = "block";
+          Return.style.display = "block";
           imgContainer.classList.add("img-slideup");
-          para.style.display = "block";
+          card.classList.add("checked-card");
+          FinishButton.disabled = false;
+          FinishButton.style.opacity = 1;
+          FinishButton.style.cursor = "pointer";
         } else {
+          anything.style.display = "none";
+          Return.style.display = "none";
           imgContainer.classList.remove("img-slideup");
-          para.style.display = "none";
+          card.classList.remove("checked-card");
+          FinishButton.disabled = true;
+          FinishButton.style.opacity = 0.5;
         }
       });
     });
+
+    //to change the position of card label
 
     checkboxes.forEach((checkbox) => {
       checkbox.addEventListener("change", function () {
         const label = this.closest(".card-label").querySelector("label");
 
         if (this.checked) {
-          label.classList.add("animation-name");
+          label.classList.add("label-slideup");
         } else {
-          label.classList.remove("animation-name");
+          label.classList.remove("label-slideup");
         }
+      });
+    });
 
+    //for the para div
+
+    checkboxes.forEach((checkbox) => {
+      checkbox.addEventListener("change", function () {
         const containerId = this.id.replace("checkbox", "container");
-        const imgContainer = document.getElementById(containerId);
+        const para = document
+          .getElementById(containerId)
+          .querySelector(".para"); // Selects the para element within the container
+
+        if (this.checked) {
+          para.classList.add(".para-block");
+          para.classList.remove(".para");
+        } else {
+          para.classList.add(".para");
+          para.classList.remove(".para-block");
+        }
       });
     });
   </script>
