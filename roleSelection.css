@@ -282,7 +282,6 @@ p {
   }
 
   .options {
-    /* grid-template-columns: 1fr 1fr; */
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -293,5 +292,8 @@ p {
   .card {
     width: 30%;
     height: 40vmin;
+  }
+  .return {
+    margin-top: 0px;
   }
 }
